@@ -16,6 +16,6 @@ jobs:
           resourceGroupName: CloudBootcampARM
           templateLocation: armfiles/azuredeploy.json
           parameters: armfiles/parameters.json
-          deploymentName: IaC_deploy_using_ARM+GitHub-Acions
+          deploymentName: IaC-deploy
 
       - run: echo ${{ steps.deploy.outputs.containerName }}
