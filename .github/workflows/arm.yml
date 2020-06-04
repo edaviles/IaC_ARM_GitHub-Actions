@@ -1,0 +1,21 @@
+name: ARM Templay deploy to Azure
+on:
+  pull_request:
+  push:
+    branches:
+        - 'master'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: whiteducksoftware/azure-arm-action@v3
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resourceGroupName: CloudBootcampARM
+          templateLocation: armfiles/azuredeploy.json
+          parameters: armfiles/parameters.json
+          deploymentName: IaC_deploy_using_ARM+GitHub-Acions
+
+      - run: echo ${{ steps.deploy.outputs.containerName }}
