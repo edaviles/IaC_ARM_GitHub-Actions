@@ -13,7 +13,7 @@ jobs:
       - uses: whiteducksoftware/azure-arm-action@v3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          resourceGroupName: CloudBootcampARM
+          resourceGroupName: GitHub_Zone
           templateLocation: armfiles/azuredeploy.json
           parameters: armfiles/parameters.json
           deploymentName: IaC-deploy
